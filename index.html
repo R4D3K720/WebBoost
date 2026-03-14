@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WebBoost | Strony internetowe i widoczność online</title>
+  <title>WebBoost — Strony internetowe i widoczność online</title>
   <meta
     name="description"
-    content="WebBoost pomaga lokalnym firmom i małym biznesom rozwijać się w internecie poprzez nowoczesne strony internetowe, poprawę wizytówek Google i zwiększanie widoczności online."
+    content="WebBoost pomaga lokalnym firmom rozwijać się w internecie poprzez nowoczesne strony internetowe, lepsze wizytówki Google i większą widoczność online."
   />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,239 +14,957 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    :root {
+      --bg: #f7f9fc;
+      --bg-soft: #eef4ff;
+      --surface: rgba(255, 255, 255, 0.82);
+      --surface-strong: #ffffff;
+      --text: #162033;
+      --text-soft: #5f6b81;
+      --primary: #2253d9;
+      --primary-hover: #193fb0;
+      --secondary: #e7efff;
+      --line: rgba(21, 33, 58, 0.1);
+      --shadow: 0 24px 60px rgba(27, 42, 76, 0.12);
+      --shadow-soft: 0 12px 30px rgba(27, 42, 76, 0.08);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --container: 1350px;
+      --transition: 0.28s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(34, 83, 217, 0.12), transparent 32%),
+        radial-gradient(circle at 85% 15%, rgba(88, 145, 255, 0.12), transparent 26%),
+        linear-gradient(180deg, #fbfcff 0%, #f5f8fe 100%);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--container));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 96px 0;
+    }
+
+    .section-header {
+      max-width: 760px;
+      margin-bottom: 42px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(34, 83, 217, 0.09);
+      color: var(--primary);
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      margin-bottom: 16px;
+    }
+
+    .section-description {
+      font-size: 1.05rem;
+      color: var(--text-soft);
+      max-width: 720px;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: rgba(247, 249, 252, 0.72);
+      border-bottom: 1px solid rgba(21, 33, 58, 0.06);
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1.08rem;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      color: white;
+      background: linear-gradient(135deg, #2253d9, #5e95ff);
+      box-shadow: 0 14px 26px rgba(34, 83, 217, 0.24);
+      font-weight: 800;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      color: var(--text-soft);
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      transition: color var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 20px;
+      border-radius: 14px;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 700;
+      box-shadow: 0 14px 30px rgba(34, 83, 217, 0.22);
+      transition: transform var(--transition), background var(--transition), box-shadow var(--transition);
+    }
+
+    .nav-cta:hover,
+    .button:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 18px 34px rgba(34, 83, 217, 0.25);
+    }
+
+    .hero {
+      padding: 68px 0 80px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .hero-card,
+    .glass-card {
+      background: var(--surface);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(14px);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+    }
+
+.hero-content {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: -200px;
+  position: relative;
+  z-index: 2;
+}
+.hero-content > * {
+  margin-bottom: 24px;
+}
+
+.hero-content > *:last-child {
+  margin-bottom: 0;
+}
+    .hero-title {
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+    }
+
+    .hero-text {
+      
+      font-size: 1.1rem;
+      color: var(--text-soft);
+      max-width: 700px;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 24px;
+      border-radius: 16px;
+      border: none;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform var(--transition), background var(--transition), box-shadow var(--transition);
+      box-shadow: 0 14px 30px rgba(34, 83, 217, 0.22);
+    }
+
+    .button-secondary {
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--text);
+      border: 1px solid var(--line);
+      box-shadow: none;
+    }
+
+    .button-secondary:hover {
+      transform: translateY(-2px);
+      border-color: rgba(34, 83, 217, 0.22);
+      background: #fff;
+    }
+
+    .hero-panel {
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: auto -70px -90px auto;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(34, 83, 217, 0.18), transparent 70%);
+      pointer-events: none;
+    }
+
+    .dashboard {
+      display: grid;
+      gap: 18px;
+    }
+
+    .mini-card {
+      background: var(--surface-strong);
+      border: 1px solid rgba(21, 33, 58, 0.08);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .mini-card-title {
+      font-size: 0.94rem;
+      color: var(--text-soft);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .mini-card-value {
+      font-size: 1.9rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      margin-bottom: 8px;
+    }
+
+    .mini-card-text {
+      color: var(--text-soft);
+      font-size: 0.98rem;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .list {
+      display: grid;
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .list-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: var(--text-soft);
+    }
+
+    .list-item strong {
+      display: block;
+      color: var(--text);
+      font-size: 0.98rem;
+      margin-bottom: 2px;
+    }
+
+    .tick {
+      flex: 0 0 auto;
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: rgba(34, 83, 217, 0.12);
+      display: grid;
+      place-items: center;
+      color: var(--primary);
+      font-size: 0.92rem;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    .about-grid,
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .info-card,
+    .contact-card,
+    .form-card,
+    .step-card,
+    .service-card,
+    .benefit-card {
+      background: rgba(255, 255, 255, 0.84);
+      border: 1px solid rgba(21, 33, 58, 0.08);
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      box-shadow: var(--shadow-soft);
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+    }
+
+    .service-card:hover,
+    .benefit-card:hover,
+    .step-card:hover,
+    .info-card:hover,
+    .contact-card:hover,
+    .form-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+      border-color: rgba(34, 83, 217, 0.14);
+    }
+
+    .card-title {
+      font-size: 1.28rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+    }
+
+    .card-text {
+      color: var(--text-soft);
+      font-size: 1rem;
+    }
+
+    .services-grid,
+    .benefits-grid,
+    .steps-grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .benefits-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .steps-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .icon-badge,
+    .step-number {
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--primary);
+      background: linear-gradient(135deg, rgba(34, 83, 217, 0.13), rgba(94, 149, 255, 0.18));
+    }
+
+    .step-number {
+      border-radius: 16px;
+      font-size: 1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .benefit-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .benefit-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      color: var(--text-soft);
+    }
+
+    .benefit-item span {
+      width: 30px;
+      height: 30px;
+      flex: 0 0 auto;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: rgba(34, 83, 217, 0.12);
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    .contact-card p + p {
+      margin-top: 10px;
+    }
+
+    .contact-label {
+      color: var(--text-soft);
+      font-size: 0.94rem;
+      margin-bottom: 4px;
+    }
+
+    .contact-value {
+      font-size: 1.02rem;
+      font-weight: 600;
+      word-break: break-word;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .field label {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .field input,
+    .field textarea {
+      width: 100%;
+      border: 1px solid rgba(21, 33, 58, 0.1);
+      background: rgba(255, 255, 255, 0.94);
+      border-radius: 16px;
+      padding: 15px 16px;
+      color: var(--text);
+      outline: none;
+      transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: rgba(34, 83, 217, 0.45);
+      box-shadow: 0 0 0 4px rgba(34, 83, 217, 0.1);
+    }
+
+    .field textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .footer {
+      padding: 26px 0 38px;
+      color: var(--text-soft);
+      font-size: 0.95rem;
+    }
+
+    .footer-inner {
+      padding-top: 22px;
+      border-top: 1px solid rgba(21, 33, 58, 0.08);
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .about-grid,
+      .contact-grid,
+      .services-grid,
+      .benefits-grid,
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-content {
+        padding-right: 0;
+      }
+
+      .hero {
+        padding-top: 42px;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .section {
+        padding: 76px 0;
+      }
+
+      .nav {
+        min-height: auto;
+        padding: 18px 0;
+        flex-wrap: wrap;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: center;
+        gap: 16px;
+        flex-wrap: wrap;
+        font-size: 0.95rem;
+      }
+
+      .nav-cta {
+        width: 100%;
+      }
+
+      .stats-row {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-title {
+        font-size: clamp(2.4rem, 10vw, 3.5rem);
+      }
+    }
+.accent-word {
+  color: var(--primary);
+}
+    @media (max-width: 560px) {
+      .container {
+        width: min(calc(100% - 24px), var(--container));
+      }
+
+      .section {
+        padding: 64px 0;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .button,
+      .button-secondary {
+        width: 100%;
+      }
+
+      .hero-panel,
+      .service-card,
+      .benefit-card,
+      .step-card,
+      .info-card,
+      .contact-card,
+      .form-card {
+        padding: 22px;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+      .accent-word {
+  color: #2253D9;
+}
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
     <div class="container nav">
-      <a href="#" class="logo">WebBoost</a>
+      <a href="#top" class="brand" aria-label="WebBoost strona główna">
+        <span class="brand-mark">WB</span>
+        <span>WebBoost</span>
+      </a>
 
-      <nav class="nav-links" id="navLinks">
-        <a href="#oferta">Usługi</a>
+      <nav class="nav-links" aria-label="Główna nawigacja">
+        <a href="#o-mnie">Czym się zajmuję</a>
+        <a href="#uslugi">Usługi</a>
         <a href="#dlaczego">Dlaczego warto</a>
         <a href="#wspolpraca">Współpraca</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
 
-      <button class="menu-toggle" id="menuToggle" aria-label="Otwórz menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <a href="#kontakt" class="nav-cta">Napisz wiadomość</a>
     </div>
   </header>
 
-  <main>
+  <main id="top">
     <section class="hero">
       <div class="container hero-grid">
-        <div class="hero-content">
-          <p class="eyebrow">Nowoczesna obecność online dla lokalnych firm</p>
-          <h1>
-            Pomagam lokalnym firmom i małym biznesom rozwijać się w internecie
-            i zdobywać lepszą widoczność online.
-          </h1>
+        <div class="hero-content reveal">
+          <div class="eyebrow">Nowoczesna obecność online dla lokalnych firm</div>
+          <h1 class="hero-title">
+  <span class="accent-word">Pomagam</span> lokalnym firmom i małym biznesom
+  <span class="accent-word">rozwijać</span> się w internecie i zdobywać
+  lepszą <span class="accent-word">widoczność online</span>.
+</h1>
           <p class="hero-text">
-            Tworzę nowoczesne strony internetowe, pomagam uporządkować wizytówki
-            Google i wspieram firmy w budowaniu silniejszej obecności w internecie.
+            Tworzę nowoczesne strony internetowe, pomagam uporządkować wizytówki Google i wspieram firmy w budowaniu silniejszej obecności w internecie.
           </p>
-
           <div class="hero-actions">
-            <a href="#kontakt" class="btn btn-primary">Napisz wiadomość</a>
-            <a href="#oferta" class="btn btn-secondary">Zobacz usługi</a>
+            <a href="#kontakt" class="button">Napisz wiadomość</a>
+            <a href="#uslugi" class="button button-secondary">Zobacz usługi</a>
           </div>
         </div>
 
-        <div class="hero-card">
-          <div class="mini-card">
-            <span class="mini-label">Strony internetowe</span>
-            <h3>Nowoczesny wizerunek firmy</h3>
-            <p>Przejrzysta prezentacja oferty, łatwy kontakt i profesjonalny wygląd.</p>
-          </div>
+        <div class="hero-card hero-panel reveal">
+          <div class="dashboard">
+            <div class="mini-card">
+              <div class="mini-card-title">WebBoost</div>
+              <div class="mini-card-value">Silniejszy wizerunek online</div>
+              <p class="mini-card-text">
+                Strona, wizytówka Google i spójna obecność w internecie pomagają firmie wyglądać profesjonalnie i łatwiej docierać do klientów.
+              </p>
+            </div>
 
-          <div class="mini-card">
-            <span class="mini-label">Wizytówki Google</span>
-            <h3>Lepsza widoczność lokalna</h3>
-            <p>Pomoc w uporządkowaniu profilu, danych firmy i obecności w mapach.</p>
-          </div>
+            <div class="stats-row">
+              <div class="mini-card">
+                <div class="mini-card-title">Strony internetowe</div>
+                <div class="mini-card-value">Nowocześnie</div>
+                <p class="mini-card-text">Przejrzyste, szybkie i dopasowane do telefonu.</p>
+              </div>
 
-          <div class="mini-card">
-            <span class="mini-label">Widoczność online</span>
-            <h3>Więcej zaufania w internecie</h3>
-            <p>Spójna obecność firmy, która pomaga docierać do nowych klientów.</p>
+              <div class="mini-card">
+                <div class="mini-card-title">Widoczność</div>
+                <div class="mini-card-value">Lokalnie</div>
+                <p class="mini-card-text">Lepsza prezentacja firmy tam, gdzie szukają klienci.</p>
+              </div>
+            </div>
+
+            <div class="mini-card">
+              <div class="mini-card-title">Co zyskuje firma</div>
+              <div class="list">
+                <div class="list-item">
+                  <div class="tick">✓</div>
+                  <div>
+                    <strong>Lepsze pierwsze wrażenie</strong>
+                    profesjonalny wygląd marki już od pierwszego kontaktu.
+                  </div>
+                </div>
+                <div class="list-item">
+                  <div class="tick">✓</div>
+                  <div>
+                    <strong>Większa przejrzystość oferty</strong>
+                    klient szybciej rozumie, czym zajmuje się firma.
+                  </div>
+                </div>
+                <div class="list-item">
+                  <div class="tick">✓</div>
+                  <div>
+                    <strong>Spójna obecność online</strong>
+                    strona i wizytówka działają razem, a nie osobno.
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section section-light" id="czym">
-      <div class="container narrow">
-        <div class="section-heading center">
-          <p class="section-label">Czym się zajmuję</p>
-          <h2>Wsparcie dla firm, które chcą lepiej wyglądać i działać w internecie</h2>
-        </div>
-        <p class="section-text center">
-          Pomagam lokalnym firmom i małym biznesom rozwijać się w internecie
-          poprzez nowoczesne strony internetowe, poprawę wizytówek Google
-          i zwiększanie widoczności online.
-        </p>
-      </div>
-    </section>
-
-    <section class="section" id="oferta">
+    <section class="section" id="o-mnie">
       <div class="container">
-        <div class="section-heading">
-          <p class="section-label">Usługi</p>
-          <h2>Proste rozwiązania, które wspierają rozwój firmy</h2>
+        <div class="section-header reveal">
+          <div class="eyebrow">Czym się zajmuję</div>
+          <h2 class="section-title">Pomagam małym firmom lepiej wyglądać i działać w internecie.</h2>
+          <p class="section-description">
+            WebBoost to wsparcie dla lokalnych biznesów, które chcą mieć estetyczną stronę, uporządkowaną wizytówkę Google i bardziej profesjonalną obecność online. Celem nie jest tylko ładny wygląd, ale także większa czytelność oferty i lepsze zaufanie klientów.
+          </p>
         </div>
 
-        <div class="cards-3">
-          <article class="service-card">
-            <div class="icon-wrap">🌐</div>
-            <h3>Tworzenie stron internetowych</h3>
-            <p>
-              Nowoczesne strony dla firm, które budują profesjonalny wizerunek
-              i ułatwiają kontakt z klientem.
+        <div class="about-grid">
+          <article class="info-card reveal">
+            <div class="icon-badge">🌐</div>
+            <h3 class="card-title">Nowoczesna strona to dziś podstawa</h3>
+            <p class="card-text">
+              Dla wielu klientów pierwsze spotkanie z firmą odbywa się w Google albo na telefonie. Dlatego strona powinna być szybka, przejrzysta i wyglądać profesjonalnie już od pierwszych sekund.
             </p>
           </article>
 
-          <article class="service-card">
-            <div class="icon-wrap">📍</div>
-            <h3>Wizytówki Google</h3>
-            <p>
-              Pomoc w uporządkowaniu i poprawie wizytówki Google, aby firma była
-              lepiej widoczna lokalnie.
-            </p>
-          </article>
-
-          <article class="service-card">
-            <div class="icon-wrap">📈</div>
-            <h3>Widoczność online</h3>
-            <p>
-              Wsparcie w budowaniu lepszej obecności firmy w internecie
-              i docieraniu do nowych klientów.
+          <article class="info-card reveal">
+            <div class="icon-badge">📍</div>
+            <h3 class="card-title">Widoczność lokalna ma ogromne znaczenie</h3>
+            <p class="card-text">
+              Dobrze przygotowana wizytówka Google i spójna obecność online pomagają firmie łatwiej docierać do osób, które szukają konkretnych usług w swojej okolicy.
             </p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section section-alt" id="dlaczego">
+    <section class="section" id="uslugi">
       <div class="container">
-        <div class="section-heading">
-          <p class="section-label">Dlaczego warto</p>
-          <h2>Skupienie na tym, co naprawdę ważne dla małego biznesu</h2>
+        <div class="section-header reveal">
+          <div class="eyebrow">Usługi</div>
+          <h2 class="section-title">Trzy obszary, które wzmacniają obecność firmy w internecie.</h2>
+          <p class="section-description">
+            Skupiam się na tym, co dla małych firm jest najbardziej praktyczne: estetycznej stronie internetowej, lepszej prezentacji w Google i czytelniejszej widoczności online.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <div class="icon-badge">💻</div>
+            <h3 class="card-title">Tworzenie stron internetowych</h3>
+            <p class="card-text">
+              Projektowanie nowoczesnych, lekkich i responsywnych stron usługowych, które budują wiarygodność i pomagają pokazać ofertę w prosty oraz profesjonalny sposób.
+            </p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="icon-badge">⭐</div>
+            <h3 class="card-title">Wizytówki Google</h3>
+            <p class="card-text">
+              Pomoc w uporządkowaniu wizytówki, lepszym przedstawieniu firmy, uzupełnieniu kluczowych informacji i poprawie ogólnego odbioru marki w wynikach lokalnych.
+            </p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="icon-badge">📈</div>
+            <h3 class="card-title">Widoczność online</h3>
+            <p class="card-text">
+              Wsparcie w budowaniu spójnej obecności w internecie, tak aby firma wyglądała nowocześnie, czytelnie i wzbudzała większe zaufanie potencjalnych klientów.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="dlaczego">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="eyebrow">Dlaczego warto</div>
+          <h2 class="section-title">Współpraca nastawiona na prostotę, estetykę i realny efekt.</h2>
+          <p class="section-description">
+            Małe firmy często nie potrzebują skomplikowanych systemów. Potrzebują uporządkowanej, nowoczesnej i wiarygodnej obecności online, która pomaga zrobić dobre wrażenie i ułatwia kontakt z klientem.
+          </p>
         </div>
 
         <div class="benefits-grid">
-          <div class="benefit-item">
-            <span>01</span>
-            <p>Nowoczesne i przejrzyste rozwiązania</p>
-          </div>
-          <div class="benefit-item">
-            <span>02</span>
-            <p>Skupienie na realnej widoczności firmy</p>
-          </div>
-          <div class="benefit-item">
-            <span>03</span>
-            <p>Prosta i wygodna współpraca</p>
-          </div>
-          <div class="benefit-item">
-            <span>04</span>
-            <p>Strony dopasowane do potrzeb biznesu</p>
-          </div>
+          <article class="benefit-card reveal">
+            <h3 class="card-title">Korzyści dla Twojej firmy</h3>
+            <div class="benefit-list">
+              <div class="benefit-item"><span>✓</span><p>Nowoczesny i profesjonalny wygląd marki w internecie.</p></div>
+              <div class="benefit-item"><span>✓</span><p>Lepsze pierwsze wrażenie u nowych klientów.</p></div>
+              <div class="benefit-item"><span>✓</span><p>Czytelniejsze pokazanie oferty i danych kontaktowych.</p></div>
+              <div class="benefit-item"><span>✓</span><p>Spójność między stroną, wizytówką Google i komunikacją online.</p></div>
+            </div>
+          </article>
+
+          <article class="benefit-card reveal">
+            <h3 class="card-title">Co wyróżnia takie podejście</h3>
+            <div class="benefit-list">
+              <div class="benefit-item"><span>✓</span><p>Skupienie na lokalnych firmach i ich realnych potrzebach.</p></div>
+              <div class="benefit-item"><span>✓</span><p>Minimalistyczna estetyka bez zbędnego chaosu.</p></div>
+              <div class="benefit-item"><span>✓</span><p>Responsywny projekt dopasowany do komputera i telefonu.</p></div>
+              <div class="benefit-item"><span>✓</span><p>Przejrzysta współpraca krok po kroku.</p></div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
     <section class="section" id="wspolpraca">
       <div class="container">
-        <div class="section-heading">
-          <p class="section-label">Jak wygląda współpraca</p>
-          <h2>Jasny proces od pierwszej rozmowy do wdrożenia</h2>
+        <div class="section-header reveal">
+          <div class="eyebrow">Jak wygląda współpraca</div>
+          <h2 class="section-title">Prosty proces od rozmowy do wdrożenia.</h2>
+          <p class="section-description">
+            Współpraca ma być zrozumiała, wygodna i uporządkowana. Bez zbędnego komplikowania, za to z jasnym celem i konkretnym efektem dla firmy.
+          </p>
         </div>
 
-        <div class="steps">
-          <article class="step-card">
-            <div class="step-number">1</div>
-            <h3>Rozmowa i analiza</h3>
-            <p>
-              Poznaję firmę, jej potrzeby i to, co można poprawić w internecie.
+        <div class="steps-grid">
+          <article class="step-card reveal">
+            <div class="step-number">Krok 1</div>
+            <h3 class="card-title">Rozmowa i analiza</h3>
+            <p class="card-text">
+              Na początku poznaję firmę, jej ofertę, sposób działania i to, jak wygląda obecnie jej obecność w internecie.
             </p>
           </article>
 
-          <article class="step-card">
-            <div class="step-number">2</div>
-            <h3>Przygotowanie rozwiązania</h3>
-            <p>
-              Tworzę stronę lub plan poprawy widoczności dopasowany do firmy.
+          <article class="step-card reveal">
+            <div class="step-number">Krok 2</div>
+            <h3 class="card-title">Przygotowanie rozwiązania</h3>
+            <p class="card-text">
+              Następnie tworzę propozycję odpowiedniego kierunku: strony, uporządkowania wizytówki lub poprawy widoczności online.
             </p>
           </article>
 
-          <article class="step-card">
-            <div class="step-number">3</div>
-            <h3>Wdrożenie i kontakt</h3>
-            <p>
-              Publikacja projektu oraz możliwość dalszego kontaktu i rozwoju.
+          <article class="step-card reveal">
+            <div class="step-number">Krok 3</div>
+            <h3 class="card-title">Wdrożenie</h3>
+            <p class="card-text">
+              Ostatni etap to realizacja i dopracowanie całości tak, aby firma prezentowała się profesjonalnie i nowocześnie.
             </p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section section-contact" id="kontakt">
-      <div class="container contact-grid">
-        <div class="contact-info">
-          <p class="section-label">Kontakt</p>
-          <h2>Porozmawiajmy o tym, jak Twoja firma może lepiej działać w internecie</h2>
-          <p>
-            Jeśli chcesz nowoczesnej strony internetowej, lepszej wizytówki Google
-            lub bardziej profesjonalnej obecności online — napisz wiadomość.
+    <section class="section" id="kontakt">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="eyebrow">Kontakt</div>
+          <h2 class="section-title">Napisz wiadomość i opowiedz, czego potrzebuje Twoja firma.</h2>
+          <p class="section-description">
+            Jeśli chcesz odświeżyć stronę, poprawić wizytówkę Google albo lepiej pokazać firmę w internecie, skontaktuj się i opisz swoją sytuację.
           </p>
-
-          <div class="contact-details">
-            <a href="mailto:kontakt.webboost@gmail.com">kontakt.webboost@gmail.com</a>
-            <a href="tel:+48000000000">+48 000 000 000</a>
-          </div>
         </div>
 
-        <form class="contact-form">
-          <div class="form-group">
-            <label for="name">Imię / nazwa firmy</label>
-            <input type="text" id="name" name="name" placeholder="Np. Studio Fryzur Anna" />
-          </div>
+        <div class="contact-grid">
+          <aside class="contact-card reveal">
+            <div class="icon-badge">✉️</div>
+            <h3 class="card-title">Dane kontaktowe</h3>
+            <p class="card-text" style="margin-bottom: 22px;">
+              Możesz napisać wiadomość przez formularz albo skorzystać bezpośrednio z danych kontaktowych poniżej.
+            </p>
 
-          <div class="form-group">
-            <label for="email">Adres e-mail</label>
-            <input type="email" id="email" name="email" placeholder="twoj@email.pl" />
-          </div>
+            <p class="contact-label">E-mail</p>
+            <p class="contact-value"><a href="mailto:kontakt.webboost@gmail.com">kontakt.webboost@gmail.com</a></p>
 
-          <div class="form-group">
-            <label for="message">Wiadomość</label>
-            <textarea
-              id="message"
-              name="message"
-              rows="6"
-              placeholder="Napisz krótko, czego potrzebuje Twoja firma..."
-            ></textarea>
-          </div>
+            <p class="contact-label" style="margin-top: 20px;">Telefon</p>
+            <p class="contact-value"><a href="tel:+48000000000">+48 000 000 000</a></p>
+          </aside>
 
-          <button type="submit" class="btn btn-primary full">Napisz wiadomość</button>
-        </form>
+          <div class="form-card reveal">
+            <h3 class="card-title">Formularz kontaktowy</h3>
+            <p class="card-text" style="margin-bottom: 18px;">
+              Wypełnij formularz, a wiadomość będzie gotowa do wysłania przez Twój program pocztowy.
+            </p>
+
+            <form class="contact-form" id="contactForm">
+              <div class="field">
+                <label for="name">Imię lub nazwa firmy</label>
+                <input type="text" id="name" name="name" placeholder="Np. Studio Urody Bella" required />
+              </div>
+
+              <div class="field">
+                <label for="email">Adres e-mail</label>
+                <input type="email" id="email" name="email" placeholder="twoj@email.pl" required />
+              </div>
+
+              <div class="field">
+                <label for="message">Wiadomość</label>
+                <textarea id="message" name="message" placeholder="Napisz, czego potrzebuje Twoja firma..." required></textarea>
+              </div>
+
+              <button type="submit" class="button">Napisz wiadomość</button>
+            </form>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-content">
-      <p>© 2026 WebBoost. Wszystkie prawa zastrzeżone.</p>
-      <div class="footer-links">
-        <a href="#oferta">Usługi</a>
-        <a href="#wspolpraca">Współpraca</a>
-        <a href="#kontakt">Kontakt</a>
-      </div>
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© 2026 WebBoost. Nowoczesna obecność online dla lokalnych firm.</p>
+      <p>Strona gotowa do wdrożenia na GitHub Pages.</p>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealElements.forEach((element) => observer.observe(element));
+
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      const subject = encodeURIComponent(`Zapytanie ze strony WebBoost — ${name}`);
+      const body = encodeURIComponent(
+        `Imię / firma: ${name}\nE-mail: ${email}\n\nWiadomość:\n${message}`
+      );
+
+      window.location.href = `mailto:kontakt.webboost@gmail.com?subject=${subject}&body=${body}`;
+    });
+  </script>
 </body>
 </html>
