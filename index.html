@@ -549,14 +549,23 @@
       transform: translateY(0);
     }
 
-    @media (max-width: 1080px) {
-      .hero-grid,
-      .about-grid,
-      .contact-grid,
-      .services-grid,
-      .benefits-grid,
-      .services-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+ @media (max-width: 1080px) {
+  .hero-grid,
+  .about-grid,
+  .contact-grid,
+  .services-grid,
+  .benefits-grid,
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content {
+    padding-right: 0;
+  }
+
+  .hero {
+    padding-top: 42px;
+  }
 }
       .steps-grid {
         grid-template-columns: 1fr;
@@ -766,7 +775,6 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-content reveal">
-          <h1 class="hero-title">
   <h1 class="hero-title">
   <span class="accent-word">Pomagam</span> lokalnym firmom budować
   <span class="accent-word">silną obecność online</span> poprzez strony internetowe,
@@ -862,13 +870,7 @@
               Dobrze przygotowana wizytówka Google i spójna obecność online pomagają firmie łatwiej docierać do osób, które szukają konkretnych usług w swojej okolicy.
             </p>
           </article>
-          <article class="service-card reveal">
-  <div class="icon-badge">📱</div>
-  <h3 class="card-title">Social media i wizerunek</h3>
-  <p class="card-text">
-    Wsparcie w budowaniu bardziej spójnego i profesjonalnego wyglądu firmy w internecie, również w mediach społecznościowych.
-  </p>
-</article>
+
         </div>
       </div>
     </section>
@@ -877,7 +879,7 @@
       <div class="container">
         <div class="section-header reveal">
           <div class="eyebrow">Usługi</div>
-          <h2 class="section-title">Trzy obszary, które wzmacniają obecność firmy w internecie.</h2>
+          <h2 class="section-title">Cztery obszary, które wzmacniają obecność firmy w internecie.</h2>
           <p class="section-description">
             Skupiam się na tym, co dla małych firm jest najbardziej praktyczne: estetycznej stronie internetowej, lepszej prezentacji w Google i czytelniejszej widoczności online.
           </p>
@@ -907,6 +909,13 @@
               Wsparcie w budowaniu spójnej obecności w internecie, tak aby firma wyglądała nowocześnie, czytelnie i wzbudzała większe zaufanie potencjalnych klientów.
             </p>
           </article>
+          <article class="service-card reveal">
+  <div class="icon-badge">📱</div>
+  <h3 class="card-title">Social media i wizerunek</h3>
+  <p class="card-text">
+    Wsparcie w budowaniu bardziej spójnego i profesjonalnego wyglądu firmy w internecie, również w mediach społecznościowych.
+  </p>
+</article>
         </div>
       </div>
     </section>
@@ -1066,12 +1075,7 @@
 
   revealElements.forEach((element) => observer.observe(element));
 
-  const emailInput = document.getElementById('email');
-  const replytoHidden = document.getElementById('replyto-hidden');
 
-  emailInput.addEventListener('input', () => {
-    replytoHidden.value = emailInput.value.trim();
-  });
 </script>
 </body>
 </html>
