@@ -1,27 +1,31 @@
 :root {
-  --bg: #eef3f9;
-  --bg-main: #f5f8fc;
+  --bg: #edf3fb;
+  --bg-main: #f3f7fd;
   --bg-soft: #ffffff;
-  --bg-alt: #e9f0fb;
+  --bg-alt: #e3edfb;
   --surface: #ffffff;
-  --surface-2: #f8fbff;
-  --surface-3: #edf4ff;
+  --surface-2: #f4f8ff;
+  --surface-3: #eaf2ff;
 
-  --text: #142033;
-  --text-light: #5f6f86;
-  --heading: #0f1c2e;
+  --text: #122033;
+  --text-light: #5d6f88;
+  --heading: #0d1b2f;
 
-  --primary: #2457d6;
-  --primary-hover: #1c47b4;
-  --primary-soft: #e8f0ff;
-  --primary-strong: #163a8f;
+  --primary: #2458e8;
+  --primary-hover: #1d47bd;
+  --primary-soft: #dfeaff;
+  --primary-soft-2: #cfe0ff;
+  --primary-strong: #173a91;
 
-  --border: #dbe5f1;
-  --border-strong: #cad7e8;
+  --accent: #6ea8ff;
+  --accent-soft: #eef5ff;
 
-  --shadow: 0 18px 50px rgba(20, 32, 51, 0.08);
-  --shadow-soft: 0 10px 28px rgba(20, 32, 51, 0.06);
-  --shadow-hover: 0 20px 44px rgba(20, 32, 51, 0.12);
+  --border: #d5e1f0;
+  --border-strong: #bfd1e8;
+
+  --shadow: 0 20px 60px rgba(18, 32, 51, 0.08);
+  --shadow-soft: 0 10px 30px rgba(18, 32, 51, 0.06);
+  --shadow-hover: 0 22px 46px rgba(18, 32, 51, 0.12);
 
   --radius: 24px;
   --radius-sm: 18px;
@@ -42,7 +46,7 @@ html {
 body {
   font-family: "Inter", sans-serif;
   background:
-    linear-gradient(to bottom, #f4f7fb 0%, #eef3f9 100%);
+    linear-gradient(180deg, #f3f7fd 0%, #eaf1fb 52%, #edf4fc 100%);
   color: var(--text);
   line-height: 1.65;
 }
@@ -79,15 +83,15 @@ textarea {
 }
 
 .section-light {
-  background: linear-gradient(to bottom, #ffffff, #f7faff);
-  border-top: 1px solid rgba(219, 229, 241, 0.7);
-  border-bottom: 1px solid rgba(219, 229, 241, 0.7);
+  background: linear-gradient(to bottom, #f8fbff, #edf4ff);
+  border-top: 1px solid rgba(201, 216, 238, 0.75);
+  border-bottom: 1px solid rgba(201, 216, 238, 0.75);
 }
 
 .section-alt {
-  background: linear-gradient(to bottom, #edf3fc, #e7eef9);
-  border-top: 1px solid rgba(202, 215, 232, 0.7);
-  border-bottom: 1px solid rgba(202, 215, 232, 0.7);
+  background: linear-gradient(to bottom, #e7f0ff, #dce9fb);
+  border-top: 1px solid rgba(189, 207, 232, 0.8);
+  border-bottom: 1px solid rgba(189, 207, 232, 0.8);
 }
 
 .center {
@@ -113,8 +117,8 @@ textarea {
   align-items: center;
   gap: 8px;
   color: var(--primary);
-  background: var(--primary-soft);
-  border: 1px solid #d9e6ff;
+  background: linear-gradient(to bottom, #e8f0ff, #d8e7ff);
+  border: 1px solid #c8d9fb;
   padding: 8px 14px;
   border-radius: 999px;
   font-size: 0.88rem;
@@ -134,10 +138,10 @@ textarea {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(248, 251, 255, 0.9);
+  background: rgba(241, 246, 255, 0.92);
   backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(202, 215, 232, 0.7);
-  box-shadow: 0 10px 30px rgba(20, 32, 51, 0.05);
+  border-bottom: 1px solid rgba(191, 209, 232, 0.9);
+  box-shadow: 0 10px 28px rgba(18, 32, 51, 0.05);
 }
 
 .nav {
@@ -192,13 +196,12 @@ textarea {
   margin: 6px 0;
   border-radius: 999px;
 }
-
 .hero {
   padding: 96px 0 80px;
   background:
-    radial-gradient(circle at top right, rgba(36, 87, 214, 0.12), transparent 28%),
-    radial-gradient(circle at left center, rgba(36, 87, 214, 0.05), transparent 24%),
-    linear-gradient(to bottom, #f7faff 0%, #edf3fb 100%);
+    radial-gradient(circle at top right, rgba(36, 88, 232, 0.18), transparent 30%),
+    radial-gradient(circle at left center, rgba(110, 168, 255, 0.12), transparent 24%),
+    linear-gradient(to bottom, #eef4ff 0%, #dfeafd 100%);
 }
 
 .hero-grid {
@@ -275,19 +278,19 @@ textarea {
 }
 
 .hero-card {
-  background: rgba(255, 255, 255, 0.86);
-  border: 1px solid rgba(202, 215, 232, 0.85);
+  background: linear-gradient(to bottom, #f9fbff, #eef4ff);
+  border: 1px solid #cddcf1;
   border-radius: 30px;
   padding: 22px;
-  box-shadow: var(--shadow);
+  box-shadow: 0 22px 55px rgba(36, 88, 232, 0.08);
   display: grid;
   gap: 16px;
   backdrop-filter: blur(8px);
 }
 
 .mini-card {
-  background: linear-gradient(to bottom, #ffffff, #f7faff);
-  border: 1px solid #dce6f3;
+  background: linear-gradient(to bottom, #ffffff, #edf4ff);
+  border: 1px solid #d3e0f3;
   border-radius: 22px;
   padding: 22px;
   transition:
@@ -324,8 +327,8 @@ textarea {
 }
 
 .service-card {
-  background: linear-gradient(to bottom, #ffffff, #f9fbff);
-  border: 1px solid var(--border);
+  background: linear-gradient(to bottom, #ffffff, #eef5ff);
+  border: 1px solid #d4e1f3;
   border-radius: var(--radius);
   padding: 30px;
   box-shadow: var(--shadow-soft);
@@ -342,8 +345,8 @@ textarea {
   display: grid;
   place-items: center;
   font-size: 1.55rem;
-  background: linear-gradient(to bottom, #edf4ff, #dfeaff);
-  border: 1px solid #d7e4fb;
+  background: linear-gradient(to bottom, #dfeaff, #cfe0ff);
+  border: 1px solid #c4d7f6;
   margin-bottom: 18px;
 }
 
@@ -364,8 +367,8 @@ textarea {
 }
 
 .benefit-item {
-  background: linear-gradient(to bottom, #ffffff, #f8fbff);
-  border: 1px solid var(--border);
+  background: linear-gradient(to bottom, #ffffff, #edf4ff);
+  border: 1px solid #d3e0f2;
   border-radius: 22px;
   padding: 24px;
   display: flex;
@@ -385,8 +388,8 @@ textarea {
   place-items: center;
   font-weight: 800;
   color: var(--primary);
-  background: linear-gradient(to bottom, #edf4ff, #dbe8ff);
-  border: 1px solid #d4e0f8;
+  background: linear-gradient(to bottom, #dce8ff, #c8dbff);
+  border: 1px solid #bfd3f5;
 }
 
 .benefit-item p {
@@ -402,8 +405,8 @@ textarea {
 }
 
 .step-card {
-  background: linear-gradient(to bottom, #ffffff, #f8fbff);
-  border: 1px solid var(--border);
+  background: linear-gradient(to bottom, #ffffff, #eef5ff);
+  border: 1px solid #d3e0f2;
   border-radius: var(--radius);
   padding: 30px;
   box-shadow: var(--shadow-soft);
@@ -438,9 +441,9 @@ textarea {
 
 .section-contact {
   background:
-    radial-gradient(circle at top left, rgba(36, 87, 214, 0.08), transparent 24%),
-    linear-gradient(to bottom, #f8fbff, #eef4fc);
-  border-top: 1px solid rgba(202, 215, 232, 0.7);
+    radial-gradient(circle at top left, rgba(36, 88, 232, 0.12), transparent 24%),
+    linear-gradient(to bottom, #eaf2ff, #dfeafb);
+  border-top: 1px solid rgba(191, 209, 232, 0.85);
 }
 
 .contact-grid {
@@ -482,11 +485,11 @@ textarea {
 }
 
 .contact-form {
-  background: linear-gradient(to bottom, #ffffff, #f9fbff);
-  border: 1px solid var(--border);
+  background: linear-gradient(to bottom, #ffffff, #eef4ff);
+  border: 1px solid #d2def0;
   border-radius: 26px;
   padding: 30px;
-  box-shadow: var(--shadow);
+  box-shadow: 0 20px 48px rgba(36, 88, 232, 0.08);
   transition:
     transform var(--transition),
     box-shadow var(--transition),
@@ -539,7 +542,7 @@ textarea {
 
 .site-footer {
   border-top: 1px solid var(--border);
-  background: #f5f8fc;
+  background: #eaf1fb;
 }
 
 .footer-content {
