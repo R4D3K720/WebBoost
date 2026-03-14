@@ -995,34 +995,42 @@
             <p class="contact-value"><a href="mailto:kontakt.webboost@gmail.com">kontakt.webboost@gmail.com</a></p>
 
             <p class="contact-label" style="margin-top: 20px;">Telefon</p>
-            <p class="contact-value"><a href="tel:+48000000000">+48 000 000 000</a></p>
+            <p class="contact-value"><a href="tel:+48000000000">+48 537 275 214</a></p>
           </aside>
 
-          <div class="form-card reveal">
-            <h3 class="card-title">Formularz kontaktowy</h3>
-            <p class="card-text" style="margin-bottom: 18px;">
-              Wypełnij formularz, a wiadomość będzie gotowa do wysłania przez Twój program pocztowy.
-            </p>
+         <div class="form-card reveal">
+  <h3 class="card-title">Formularz kontaktowy</h3>
+  <p class="card-text" style="margin-bottom: 18px;">
+    Wypełnij formularz i wyślij wiadomość bezpośrednio ze strony.
+  </p>
 
-            <form class="contact-form" id="contactForm">
-              <div class="field">
-                <label for="name">Imię lub nazwa firmy</label>
-                <input type="text" id="name" name="name" placeholder="Np. Studio Urody Bella" required />
-              </div>
+  <form
+    class="contact-form"
+    id="contactForm"
+    action="https://formspree.io/f/mykndgko"
+    method="POST"
+  >
+    <div class="field">
+      <label for="name">Imię lub nazwa firmy</label>
+      <input type="text" id="name" name="name" placeholder="Np. Studio Urody Bella" required />
+    </div>
 
-              <div class="field">
-                <label for="email">Adres e-mail</label>
-                <input type="email" id="email" name="email" placeholder="twoj@email.pl" required />
-              </div>
+    <div class="field">
+      <label for="email">Adres e-mail</label>
+      <input type="email" id="email" name="email" placeholder="twoj@email.pl" required />
+    </div>
 
-              <div class="field">
-                <label for="message">Wiadomość</label>
-                <textarea id="message" name="message" placeholder="Napisz, czego potrzebuje Twoja firma..." required></textarea>
-              </div>
+    <div class="field">
+      <label for="message">Wiadomość</label>
+      <textarea id="message" name="message" placeholder="Napisz, czego potrzebuje Twoja firma..." required></textarea>
+    </div>
 
-              <button type="submit" class="button">Napisz wiadomość</button>
-            </form>
-          </div>
+    <input type="hidden" name="_subject" value="Nowa wiadomość ze strony WebBoost" />
+    <input type="email" id="email" name="email" placeholder="kontakt.webboost@gmail.com" required />
+
+    <button type="submit" class="button">Wyślij wiadomość</button>
+  </form>
+</div>
         </div>
       </div>
     </section>
@@ -1035,35 +1043,26 @@
     </div>
   </footer>
 
-  <script>
-    const revealElements = document.querySelectorAll('.reveal');
+<script>
+  const revealElements = document.querySelectorAll('.reveal');
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    revealElements.forEach((element) => observer.observe(element));
-
-    const form = document.getElementById('contactForm');
-    form.addEventListener('submit', (event) => {
-      event.preventDefault();
-
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const message = document.getElementById('message').value.trim();
-
-      const subject = encodeURIComponent(`Zapytanie ze strony WebBoost — ${name}`);
-      const body = encodeURIComponent(
-        `Imię / firma: ${name}\nE-mail: ${email}\n\nWiadomość:\n${message}`
-      );
-
-      window.location.href = `mailto:kontakt.webboost@gmail.com?subject=${subject}&body=${body}`;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
     });
-  </script>
+  }, { threshold: 0.12 });
+
+  revealElements.forEach((element) => observer.observe(element));
+
+  const emailInput = document.getElementById('email');
+  const replytoHidden = document.getElementById('replyto-hidden');
+
+  emailInput.addEventListener('input', () => {
+    replytoHidden.value = emailInput.value.trim();
+  });
+</script>
 </body>
 </html>
