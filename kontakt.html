@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontakt — WebBoost</title>
+  <meta
+    name="description"
+    content="Skontaktuj się z WebBoost w sprawie strony internetowej, wizytówki Google lub obecności firmy w internecie."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg: #f5f8ff;
+      --bg-soft: #edf3ff;
+      --surface: rgba(255, 255, 255, 0.88);
+      --surface-strong: #ffffff;
+      --text: #0e1728;
+      --text-soft: #5a6780;
+      --line: rgba(16, 24, 40, 0.08);
+      --primary: #2155ff;
+      --primary-2: #5a8cff;
+      --primary-dark: #1238b8;
+      --accent: #0d1f4d;
+      --shadow: 0 20px 60px rgba(22, 38, 90, 0.10);
+      --shadow-soft: 0 12px 35px rgba(22, 38, 90, 0.08);
+      --radius-xl: 30px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --radius-sm: 14px;
+      --container: 1100px;
+      --transition: 0.3s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(90, 140, 255, 0.18), transparent 32%),
+        radial-gradient(circle at top right, rgba(33, 85, 255, 0.12), transparent 30%),
+        linear-gradient(180deg, #f8fbff 0%, #f3f7ff 42%, #eef4ff 100%);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(100% - 28px, var(--container));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(14px);
+      background: rgba(245, 248, 255, 0.72);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 78px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #0f1f49 0%, #1947da 60%, #79a7ff 100%);
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 900;
+      box-shadow: 0 12px 30px rgba(33, 85, 255, 0.25);
+      flex-shrink: 0;
+    }
+
+    .brand-text span {
+      display: block;
+      line-height: 1;
+    }
+
+    .brand-text small {
+      display: block;
+      color: var(--text-soft);
+      font-size: 0.76rem;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    .nav-back {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      color: white;
+      font-weight: 700;
+      font-size: 0.92rem;
+      box-shadow: 0 12px 28px rgba(33, 85, 255, 0.24);
+      transition: var(--transition);
+    }
+
+    .nav-back:hover {
+      transform: translateY(-2px);
+    }
+
+    .contact-page {
+      padding: 36px 0 46px;
+    }
+
+    .contact-grid-main {
+      display: grid;
+      gap: 18px;
+    }
+
+    .contact-info,
+    .contact-form-wrap {
+      background: rgba(255,255,255,0.84);
+      border: 1px solid rgba(255,255,255,0.92);
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(33, 85, 255, 0.08);
+      color: var(--primary-dark);
+      font-weight: 700;
+      font-size: 0.82rem;
+      margin-bottom: 16px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #2155ff, #6ea0ff);
+    }
+
+    h1 {
+      font-size: clamp(2rem, 7vw, 4rem);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+
+    .lead {
+      color: var(--text-soft);
+      line-height: 1.75;
+      font-size: 1rem;
+      margin-bottom: 22px;
+    }
+
+    .info-cards {
+      display: grid;
+      gap: 12px;
+    }
+
+    .info-card {
+      padding: 16px;
+      border-radius: 22px;
+      background: rgba(33, 85, 255, 0.05);
+      border: 1px solid rgba(33, 85, 255, 0.08);
+    }
+
+    .info-card strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.96rem;
+    }
+
+    .info-card span {
+      color: var(--text-soft);
+      line-height: 1.6;
+      font-size: 0.94rem;
+    }
+
+    .quick-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .btn {
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 18px;
+      border-radius: 18px;
+      font-weight: 800;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      color: white;
+      box-shadow: 0 18px 34px rgba(33, 85, 255, 0.24);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.85);
+      color: var(--accent);
+      border: 1px solid rgba(20, 30, 60, 0.08);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .contact-form-wrap h2 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      letter-spacing: -0.03em;
+    }
+
+    .contact-form-wrap p {
+      color: var(--text-soft);
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-group label {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      border: 1px solid rgba(16, 24, 40, 0.08);
+      background: rgba(255,255,255,0.88);
+      color: var(--text);
+      border-radius: 16px;
+      padding: 15px 16px;
+      font-size: 0.96rem;
+      font-family: inherit;
+      outline: none;
+      transition: 0.25s ease;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #8a94a8;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: rgba(33, 85, 255, 0.35);
+      box-shadow: 0 0 0 4px rgba(33, 85, 255, 0.08);
+    }
+
+    .submit-btn {
+      width: 100%;
+    }
+
+    .form-note {
+      color: var(--text-soft);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-top: 2px;
+    }
+
+    .success-box {
+      display: none;
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(30, 166, 114, 0.10);
+      border: 1px solid rgba(30, 166, 114, 0.18);
+      color: #11704d;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .site-footer {
+      padding: 0 0 34px;
+    }
+
+    .footer-box {
+      padding: 18px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.75);
+      border: 1px solid rgba(255,255,255,0.88);
+      box-shadow: var(--shadow-soft);
+      color: var(--text-soft);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    @media (min-width: 760px) {
+      .quick-actions {
+        flex-direction: row;
+      }
+
+      .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .form-group.full {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (min-width: 980px) {
+      .contact-page {
+        padding: 52px 0 54px;
+      }
+
+      .contact-grid-main {
+        grid-template-columns: 0.92fr 1.08fr;
+        align-items: start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="brand">
+        <div class="brand-mark">WB</div>
+        <div class="brand-text">
+          <span>WebBoost</span>
+          <small>Widoczność firm online</small>
+        </div>
+      </a>
+
+      <a href="index.html" class="nav-back">Powrót na stronę główną</a>
+    </div>
+  </header>
+
+  <main class="contact-page">
+    <div class="container">
+      <div class="contact-grid-main">
+        <section class="contact-info">
+          <div class="eyebrow">
+            <span class="dot"></span>
+            Kontakt
+          </div>
+
+          <h1>Porozmawiajmy o Twojej firmie</h1>
+          <p class="lead">
+            Napisz, czym zajmuje się Twoja firma i co chcesz poprawić w swojej obecności online.
+            Możesz odezwać się przez formularz, mailowo albo telefonicznie.
+          </p>
+
+          <div class="info-cards">
+            <div class="info-card">
+              <strong>Email</strong>
+              <span>kontakt.webboost@gmail.com</span>
+            </div>
+
+            <div class="info-card">
+              <strong>Telefon</strong>
+              <span>+48 537 275 214</span>
+            </div>
+
+            <div class="info-card">
+              <strong>Zakres</strong>
+              <span>Strony internetowe, wizytówki Google, social media, obecność online</span>
+            </div>
+          </div>
+
+          <div class="quick-actions">
+            <a href="mailto:kontakt.webboost@gmail.com" class="btn btn-secondary">Napisz email</a>
+            <a href="tel:+48537275214" class="btn btn-primary">Zadzwoń</a>
+          </div>
+        </section>
+
+        <section class="contact-form-wrap">
+          <h2>Formularz kontaktowy</h2>
+          <p>
+            Im więcej napiszesz o swojej firmie i potrzebach, tym łatwiej będzie przygotować sensowną propozycję.
+          </p>
+
+          <form
+            action="https://formspree.io/f/mykndgko"
+            method="POST"
+            class="contact-form"
+            id="contactForm"
+          >
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="name">Imię / nazwa firmy</label>
+                <input type="text" id="name" name="name" placeholder="Np. Glow Hair Studio" required>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Adres e-mail</label>
+                <input type="email" id="email" name="email" placeholder="twoj@email.pl" required>
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Telefon</label>
+                <input type="tel" id="phone" name="phone" placeholder="+48 123 456 789">
+              </div>
+
+              <div class="form-group">
+                <label for="service">Zakres pomocy</label>
+                <select id="service" name="service" required>
+                  <option value="">Wybierz opcję</option>
+                  <option value="strona-internetowa">Strona internetowa</option>
+                  <option value="wizytowka-google">Wizytówka Google</option>
+                  <option value="social-media">Social media</option>
+                  <option value="kompleksowa-obecnosc">Kompleksowa obecność online</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group full">
+              <label for="message">Wiadomość</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="6"
+                placeholder="Napisz kilka słów o swojej firmie i czego potrzebujesz..."
+                required
+              ></textarea>
+            </div>
+
+            <input type="hidden" name="_subject" value="Nowa wiadomość ze strony WebBoost">
+
+            <button type="submit" class="btn btn-primary submit-btn">
+              Wyślij wiadomość
+            </button>
+
+            <div class="form-note">
+              Po wysłaniu formularza wiadomość trafi bezpośrednio do WebBoost przez Formspree.
+            </div>
+
+            <div class="success-box" id="successBox">
+              Dziękuję! Wiadomość została wysłana.
+            </div>
+          </form>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-box">
+        © 2026 WebBoost. Strony internetowe, wizytówki Google i obecność online dla firm.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const form = document.getElementById("contactForm");
+    const successBox = document.getElementById("successBox");
+
+    if (form) {
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const data = new FormData(form);
+
+        try {
+          const response = await fetch(form.action, {
+            method: form.method,
+            body: data,
+            headers: {
+              "Accept": "application/json"
+            }
+          });
+
+          if (response.ok) {
+            form.reset();
+            successBox.style.display = "block";
+            successBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          } else {
+            alert("Nie udało się wysłać formularza. Spróbuj ponownie.");
+          }
+        } catch (error) {
+          alert("Wystąpił błąd. Spróbuj ponownie później.");
+        }
+      });
+    }
+  </script>
+</body>
+</html>
